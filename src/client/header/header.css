@@ -1,0 +1,45 @@
+.main_header {
+  height: 50px;
+  width: 100%;
+  margin-top: 3px;
+  display: flex;
+  padding: 0px 10px 0px 10px;
+  background-color: white;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.second_header {
+  display: flex;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.header_button {
+  min-width: 80px;
+  padding: 5px 10px;
+  background-color: transparent;
+  font-weight: 600;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  color: rgb(58, 58, 58);
+  margin: 0px 5px;
+}
+
+.create_new {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+#logout_btn {
+  background-color: #0780ec;
+  height: 30px;
+  padding: 0px 15px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
