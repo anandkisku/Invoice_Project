@@ -3,13 +3,8 @@ import "./form.css";
 import { GoUpload } from "react-icons/go";
 import { LuListTodo } from "react-icons/lu";
 import { Document, Page, pdfjs } from "react-pdf";
-import {} from "react-pdf";
-import pdfF from "./anand_kiskuCV.pdf";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.js",
-  import.meta.url
-).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function PdfReader() {
   const [file, setFile] = useState(null);
@@ -17,17 +12,22 @@ function PdfReader() {
   const [pageNumber, setPageNumber] = useState(1);
 
   function onHadleSelectFile(e) {
+    e.preventDefault();
     console.log("e.target.files", e.target.files[0]);
     const uploadedFile = e.target.files[0];
     if (uploadedFile) {
       const fileUrl = URL.createObjectURL(uploadedFile);
+      console.log("fileUrl", fileUrl);
       setFile(fileUrl);
     }
   }
 
   const onLoadSuccess = ({ numPages }) => {
+    console.log("numPage", numPages);
     setNumPages(numPages);
   };
+
+  console.log("file", file);
 
   return (
     <div className="pdfMain_container">
@@ -44,8 +44,8 @@ function PdfReader() {
       )}
       {file && (
         <div style={{ marginTop: "20px" }}>
-          <Document file={pdfF} onLoadSuccess={onLoadSuccess}>
-            <Page pageNumber={pageNumber} />
+          <Document file={file} onLoadSuccess={onLoadSuccess}>
+            <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false}/>
           </Document>
         </div>
       )}
