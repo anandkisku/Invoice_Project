@@ -46,5 +46,16 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
+  },
+  "description": "1. First of all a login page will open\r 2. Enter any credentials to login. Those credentials will be store in the sessionStorage.\r 3. After login page will be redirect to the invoice ui.\r 4. There add all the values in the fields. Those Fields are validation fields. All Fields are manadatory.\r 5. After filling all values click save button at the bottom. Those values will be saved in the sessionStorage.\r 6. Even after Reload those previous saved values will be re-filled in the fields.\r 7. If any user has not logged in then it will be automatically redirected to login page.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anandkisku/Invoice_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anandkisku/Invoice_Project/issues"
   }
 }
