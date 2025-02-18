@@ -10,6 +10,7 @@ import { LuSendHorizontal } from "react-icons/lu";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { useNavigate } from "react-router";
 import "./form.css";
+import { toast, ToastContainer } from "react-toastify";
 
 function MyForm() {
   const [switchCurrency, setSwitchCurrency] = useState("$");
@@ -60,6 +61,16 @@ function MyForm() {
             "formData",
             JSON.stringify(values)
           )
+          toast.success('Data Saved Successfully', {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
         }}
       >
         {({ errors, touched }) => (
@@ -296,7 +307,7 @@ function MyForm() {
               />
             </div>
             <div className="add_expense_coding">
-              <button>
+              <button disabled>
                 <span style={{ fontSize: "16px", marginRight: "5px" }}>+</span>{" "}
                 Add Expense Coding
               </button>
@@ -317,7 +328,8 @@ function MyForm() {
             <div className="submit_footer">
                <div style={{marginLeft:"5%"}}><BsThreeDotsVertical /></div>
                <div id="save_as_draft">Save as Draft</div>
-               <button id="submit_btn">Submit & New</button>
+               <button type="submit" id="submit_btn">Submit & New</button>
+               <ToastContainer />
             </div>
           </Form>
         )}
